@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Responsive Flexbox</title>
+  <style>
+    /* 1. Reset Dasar */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 15px;
+      background-color: #f9f9f9;
+    }
+
+    /* 
+      ===============================================
+      2. MOBILE FIRST (STYLE DEFAULT)
+      Tampilan default jika dibuka di layar kecil (smartphone) 
+      akan menjadi 1 kolom (menumpuk ke bawah).
+      ===============================================
+    */
+    .container {
+      display: flex;
+      flex-direction: column; /* Menyusun card secara vertikal */
+      gap: 12px;               /* Memberikan jarak antar card */
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #b0c4de;
+      border-radius: 6px;
+      padding: 15px;
+      font-size: 14px;
+      line-height: 1.5;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* 
+      ===============================================
+      3. MEDIA QUERY (DESKTOP / LAYAR LEBIH BESAR)
+      Jika layar berukuran minimal 600px atau lebih,
+      tata letak berubah otomatis menjadi multi-kolom.
+      ===============================================
+    */
+    @media (min-width: 600px) {
+      .container {
+        flex-direction: row;  /* Mengubah arah susunan menjadi horizontal */
+        flex-wrap: wrap;      /* Agar card yang tidak muat turun ke baris bawah */
+      }
+
+      .card {
+        flex: 1 1 calc(25% - 12px); /* Membagi container menjadi 4 kolom */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bagian Konten Artikel / Kotak -->
+  <div class="container">
+    <div class="card">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, veniam ut quas tempora dicta sit.
+    </div>
+    <div class="card">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat error sed eligendi cumque harum deserunt?
+    </div>
+    <div class="card">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nostrum, officiis voluptatem est laboriosam iusto.
+    </div>
+    <div class="card">
+      Lorem ipsum dolor sit-amet consectetur adipisicing elit. Voluptate, veniam ut quas tempora dicta sit.
+    </div>
+    <div class="card">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat error sed eligendi cumque harum deserunt?
+    </div>
+    <div class="card">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nostrum, officiis voluptatem est laboriosam iusto.
+    </div>
+  </div>
+
+</body>
+</html>
